@@ -15,6 +15,7 @@ public class MessageService {
 	public MessageService(){
 		Message m1=new Message(1L,"Hello World","vaish");
 		Message m2=new Message(2L,"Hello Jersey","vaish");
+		Message m3=new Message(2L,"Hello Chennai","vaish");
 		messages.put(1L, m1);
 		messages.put(2L, m2);
 	}
