@@ -26,14 +26,14 @@ public class MessageResource {
 	MessageService service=new MessageService();
 	
 	@GET
-	@Produces(MediaType.TEXT_XML)
+	@Produces(MediaType.APPLICATION_JSON)
 	public List<Message> getMessages(){
 		return service.getMessages();
 	}
 	
 	@POST
-	@Consumes(MediaType.APPLICATION_XML)
-	@Produces(MediaType.TEXT_XML)
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
     public Response addMessage(Message message,@Context UriInfo uriInfo){
 		System.out.println("post works");
 		Message newMessage=service.addMessage(message);
@@ -51,8 +51,8 @@ public class MessageResource {
     
     @PUT
     @Path("/{messageId}")
-    @Consumes(MediaType.APPLICATION_XML)
-	@Produces(MediaType.TEXT_XML)
+    @Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
     public Message updateMessage(@PathParam("messageId") Long id,Message message){
     	message.setId(id);
 		return service.updateMessage(message);
@@ -61,7 +61,7 @@ public class MessageResource {
     
     @GET
     @Path("/{messageId}")
-    @Produces(MediaType.TEXT_XML)
+    @Produces(MediaType.APPLICATION_JSON)
     public Message getMessage(@PathParam("messageId") Long id){
     	System.out.println(id);
     	return service.getMessage(id);
